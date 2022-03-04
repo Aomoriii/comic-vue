@@ -48,6 +48,14 @@
 
                         <br>
                     </el-col>
+                    <el-pagination
+                            small
+                            background
+                            layout="prev, pager, next"
+                            :total="50"
+                            class="mt-4"
+                    >
+                    </el-pagination>
                 </el-tab-pane>
                 <el-tab-pane label="Role">
                     <el-col
@@ -66,6 +74,14 @@
 
                         <br>
                     </el-col>
+                    <el-pagination
+                            small
+                            background
+                            layout="prev, pager, next"
+                            :total="50"
+                            class="mt-4"
+                    >
+                    </el-pagination>
                 </el-tab-pane>
                 <el-tab-pane label="Task">
                     <el-col
@@ -84,6 +100,14 @@
 
                         <br>
                     </el-col>
+                    <el-pagination
+                            small
+                            background
+                            layout="prev, pager, next"
+                            :total="50"
+                            class="mt-4"
+                    >
+                    </el-pagination>
                 </el-tab-pane>
             </el-tabs>
         </el-col>
@@ -93,8 +117,21 @@
 
 <script  >
 
+import {useRouter} from "vue-router";
+
 export default {
-    name: "Tags"
+    name: "Tags",
+    setup() {
+        const router = useRouter();
+        const goToDetail = () => {
+            router.push({
+                name: "Detail",
+            });
+        };
+        return {
+            goToDetail,
+        }
+    },
 }
 
 </script>

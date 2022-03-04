@@ -25,7 +25,8 @@ const routes = [
         name: "charterDetail",
         component: () =>
             import('../views/charterDetail')
-    }
+    },
+
 
 ];
 

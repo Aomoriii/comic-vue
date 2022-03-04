@@ -6,10 +6,10 @@
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
             <div class="grid-content" id="carousel">
 
-                <el-carousel :interval="4000" type="card" height="300px" >
+                <el-carousel :interval="4000" :height="Height + 'px'" type="card" >
                     <el-carousel-item v-for="item in item" :key="item">
 <!--                        <h3>{{ item.url  }}</h3>-->
-                        <img src='{{ url }}'>
+                        <img ref="Height" :src="item.url" alt="..." @load="imgLoad" style="width: 100%"/>
                     </el-carousel-item>
                 </el-carousel>
 
@@ -22,7 +22,7 @@
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
             <div class="tag">
-                <p>Rank</p>
+                <p>热门</p>
             </div>
             <div class="rank">
 
@@ -51,7 +51,7 @@
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
             <div class="tag">
-                <p>Rank</p>
+                <p>更新</p>
             </div>
             <div class="rank">
 
@@ -100,15 +100,31 @@
         },
         data() {
             return {
+                Height: "",
                 item: [
-                    {url : './img/1.jpg'},
-                    {url : './img/2.jpg'},
-                    {url : './img/3.jpg'},
-                    {url : './img/4.jpg'},
-                    {url : './img/5.jpg'},
+                    {url : require("@/img/1.jpg")},
+                    {url: require("@/img/2.jpg")},
+                    {url : require("@/img/3.png")},
+                    {url : require("@/img/4.jpg")},
+                    {url : require("@/img/5.jpg")},
                 ]
             };
         },
+        mounted() {
+            this.imgLoad();
+            window.addEventListener('resize',() => {
+                this.Height = this.$refs.Height[0].height;
+                this.imgLoad();
+            },false)
+        },
+        methods: {
+            imgLoad(){
+                this.$nextTick(()=>{
+                    this.Height = this.$refs.Height[0].height;
+                    console.log(this.$refs.Height[0].height);
+                })
+            }
+        }
     }
 </script>
 

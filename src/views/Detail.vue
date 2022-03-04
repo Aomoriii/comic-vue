@@ -27,20 +27,15 @@
 
                 </div>
             </div>
-
-
-
             <div class="charterList">
                 <el-card class="box-card" id="box-card">
                     <template #header>
                         <div class="card-header">
-<!--                            <span>Card name</span>-->
-<!--                            <el-button class="button" type="text">Operation button</el-button>-->
                         </div>
                     </template>
-<!--                    <div v-for="o in 4" :key="o" class="text item" id="list">{{ 'List item ' + o }}</div>-->
-                    <div v-for="o in 40" :key="o" class="text item" id="list"><el-button class="charterButton">{{ '第 ' + o + '章' }}</el-button></div>
+                        <div v-for="(item, key) in list" class="text item" id="list" v-show="key<num"><el-button class="charterButton" @click="goToCharter">{{ item  }}</el-button></div>
 
+                    <span @click="showMore"><el-button type="danger" id="showMore_button" plain>{{ txt }}</el-button></span>
                 </el-card>
             </div>
 
@@ -51,6 +46,7 @@
 </template>
 
 <script >
+import { useRouter } from "vue-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -58,17 +54,46 @@ export default {
     name: "Detail",
     components: {Footer, Header},
     setup() {
+        const router = useRouter();
+        const  goToCharter = () => {
+            router.push({
+                name: "charterDetail",
+            });
+        };
         const src =
             'https://cover.yzkimage.com/cover/a8/f1/a8f14a15eaf89412e29742dc150e7ff9.jpeg-r0';
-        // const src =
-        //     'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
         return {
             src,
+            goToCharter,
         }
     },
     data() {
-        return {}
+        return {
+            list: [
+                '第一章',
+                '第二章',
+                '第三章',
+                '第四章',
+                '第五章',
+                '第六章',
+                '第七章',
+                '第八章',
+                '第九章',
+                '第十章',
+                '第十一章',
+            ],
+            isShow: true,
+            txt: '加载更多',
+            num: 8
+        }
     },
+    methods: {
+        showMore(){
+            this.isShow = !this.isShow;
+            this.num = this.isShow? 8:this.list.length;
+            this.txt = this.isShow? '加载更多': '收起'
+        }
+    }
 
 }
 </script>
@@ -233,4 +258,6 @@ export default {
         animation: dot 2s infinite steps(3, start);
         overflow: hidden;
     }
+
+
 </style>
