@@ -5,54 +5,24 @@
 
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
 
-<!--            <div class="deit">-->
-<!--                <div class="crumbs">-->
-<!--                    <el-breadcrumb separator="/">-->
-<!--                        <el-breadcrumb-item><i class="el-icon-date"></i> 数据管理</el-breadcrumb-item>-->
-<!--                        <el-breadcrumb-item>用户列表</el-breadcrumb-item>-->
-<!--                    </el-breadcrumb>-->
-<!--                    <div class="cantainer">-->
-<!--                        <el-table style="width: 100%;"-->
-<!--                                  :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)"-->
-<!--                        >-->
-<!--                            <el-table-column label="id" prop="id" width="180">-->
-<!--                            </el-table-column>-->
-<!--                            <el-table-column label="日期" prop="date" width="180">-->
-<!--                            </el-table-column>-->
-<!--                            <el-table-column label="用户姓名" prop="name" width="180">-->
-<!--                            </el-table-column>-->
-<!--                        </el-table>-->
-<!--                        <el-pagination-->
-<!--                                background-->
-<!--                                @size-change="handleSizeChange"-->
-<!--                                @current-change="handleCurrentChange"-->
-<!--                                :current-page="currentPage"-->
-<!--                                :page-sizes="[5, 10, 20, 40]"-->
-<!--                                :page-size="pagesize"-->
-<!--                                layout="total, sizes, prev, pager, next, jumper"-->
-<!--                                :total="userList.length">-->
-<!--                        </el-pagination>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
 
-            <el-card class="box-card" style="width: 100%;"
-                     :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)">
-                    <el-image :src="date"/>
-
-
-            </el-card>
+            <el-table :data="userList.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+                <el-table-column prop="url" align="center">
+                    <template #default="scope">
+                            <el-image :src="scope.row.url"/>
+                    </template>
+                </el-table-column>
+            </el-table>
                 <el-pagination
                         background
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
+                        :page-sizes="[100]"
                         :current-page="currentPage"
-                        :page-sizes="[5, 10, 20, 40]"
                         :page-size="pagesize"
                         layout="total, sizes, prev, pager, next, jumper"
                         :total="userList.length">
                 </el-pagination>
-
 
 
         </el-col>
@@ -69,7 +39,7 @@ export default {
     data(){
         return{
             currentPage: 1,
-            pagesize: 5,
+            pagesize: 1,
             userList: []
         }
     },
@@ -80,81 +50,43 @@ export default {
         // 初始页currentPage、初始每页数据数pagesize和数据data
         handleSizeChange: function(size) {
             this.pagesize = size
-            console.log(this.pagesize)  //每页下拉显示数据
+            //每页下拉显示数据
+            console.log(this.pagesize)
         },
         handleCurrentChange: function(currentPage) {
             this.currentPage = currentPage
-            console.log(this.currentPage)  //点击第几页
+            //点击第几页
+            console.log(this.currentPage)
         },
         handleUserList() {
 
-            // let data = [
-            //     {
-            //         url: "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
-            //     },
-            //     {
-            //         url: 'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
-            //     },
-            //     {
-            //         url: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-            //     },
-            //     {
-            //         url: 'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
-            //     },
-            // ]
-            let data = [
+            let src = [
                 {
-                    id:1,
-                    date:"https://cover.yzkimage.com/cover/a8/f1/a8f14a15eaf89412e29742dc150e7ff9.jpeg-r0",
-                    name:123,
+                    url: "https://dogemanga.com/images/pages/y7_SkEBa.jpg",
                 },
                 {
-                    id:2,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/VQg0-dBo.jpg',
                 },
                 {
-                    id:3,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/WuGXbDqy.jpg',
                 },
                 {
-                    id:4,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/Wj6GqGVT.jpg',
                 },
                 {
-                    id:5,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/dmCyJZok.jpg',
                 },
                 {
-                    id:6,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/IT9KJUgd.jpg',
                 },
                 {
-                    id:7,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/9yzSSFBb.jpg',
                 },
                 {
-                    id:8,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
-                },
-                {
-                    id:9,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
-                },
-                {
-                    id:10,
-                    date:"2020-01-22 12:12:12",
-                    name:123,
+                    url: 'https://dogemanga.com/images/pages/a5n9jCXQ.jpg',
                 },
             ]
-            this.userList = data
+            this.userList = src
         }
     }
 }
@@ -173,4 +105,27 @@ export default {
     .demo-image__lazy .el-image:last-child {
         margin-bottom: 0;
     }
+    .el-table--enable-row-hover .el-table__body tr:hover>td {
+        background-color: #f4f5f7 !important;
+    }
+    tr {pointer-events: none;}
+
+    .el-table{
+        --el-table-border-color: none !important;
+        --el-table-row-hover-background-color: none !important;
+        margin-top: 30px;
+    }
+    .el-table th, .el-table tr,.el-table td{
+        border: 0;
+        background-color: transparent !important;
+        }
+
+    tr{
+        pointer-events: none !important;
+    }
+    .el-pagination {
+        margin-top: 30px;
+    }
+
+
 </style>
