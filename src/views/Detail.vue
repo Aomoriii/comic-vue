@@ -21,7 +21,7 @@
                         这是由青春漫画旗手所呈现的青春期的不眠之夜。 以《富士山同学正值青春期》《猫之寺的知恩姐》描绘了如一瞬的光辉般的青春期的绪城真的最新作，是以能登为舞台所描绘的“睡不着”的高中生的青春期之夜。 因失眠而苦恼的高中男生岩太邂逅了有同样烦恼的的伊咲，放学后在现已成为仓库的学校天文台，享受片刻的睡眠并共有秘密，二人展开了一段奇妙的关系…… 读着读着就会开心地笑起来，然后和他们一同陷入恬静的睡眠中。 同时也直接描绘了男生女生从友情到恋情的青涩。 “你睡不着的夜晚，也一定有其意义” 现代，日本人里每4人就有1人有睡眠障碍， 十多岁的人群中失眠症也急剧增加， 在明明很累却睡不着的漫漫长夜里， 这部作品会告诉我们：“你已经不再孤独。”
                     </p>
                     <div class="readButton">
-                        <el-button round>阅读</el-button>
+                        <el-button  @click="goToCharter" round>阅读</el-button>
                     </div>
 
 
@@ -35,8 +35,8 @@
                     </template>
                         <div v-for="(item, key) in list" class="text item" id="list" v-show="key<num"><el-button class="charterButton" @click="goToCharter">{{ item  }}</el-button></div>
 
-                    <span @click="showMore"><el-button type="danger" id="showMore_button" plain>{{ txt }}</el-button></span>
                 </el-card>
+                <span @click="showMore"><el-button type="danger" id="showMore_button" plain>{{ txt }}</el-button></span>
             </div>
 
         </el-col>
@@ -257,6 +257,9 @@ export default {
     .demo-image__placeholder .dot {
         animation: dot 2s infinite steps(3, start);
         overflow: hidden;
+    }
+    #showMore_button {
+        margin-top: 30px;
     }
 
 
