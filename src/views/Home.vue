@@ -8,11 +8,9 @@
 
                 <el-carousel :interval="4000" :height="Height + 'px'" type="card" >
                     <el-carousel-item v-for="item in item" :key="item">
-<!--                        <h3>{{ item.url  }}</h3>-->
                         <img ref="Height" :src="item.url" alt="..." @load="imgLoad" style="width: 100%"/>
                     </el-carousel-item>
                 </el-carousel>
-
 
         </div></el-col>
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
