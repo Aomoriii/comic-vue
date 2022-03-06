@@ -3,7 +3,7 @@ import Home from "../views/Home";
 
 const routes = [
     {
-        path: "/",
+        path: "/Home",
         name: "Home",
         component: Home,
     },
@@ -26,6 +26,20 @@ const routes = [
         component: () =>
             import('../views/charterDetail')
     },
+    {
+        path: "/",
+        name: "Signin",
+        component: () =>
+            import('../views/Signin')
+
+    },
+    {
+        path: "/signup",
+        name: "Signup",
+        component: () =>
+            import('../views/Signup')
+    },
+
 
 
 ];

@@ -5,13 +5,13 @@
 <script>
 
 // import Home from "./components/Home";
-import Home from "./views/Home";
 
+import Signin from "./views/Signin";
 
 
 export default {
   name: 'App',
-  components: {Home}
+  components: {Signin}
 }
 </script>
 
