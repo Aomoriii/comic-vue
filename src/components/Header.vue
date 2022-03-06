@@ -6,12 +6,13 @@
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
             <div class="grid-content bg-purple">
                 <el-row >
-<!--                    <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">-->
-<!--&lt;!&ndash;                        <div class="grid-content bg-purple-light">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <img class="logo" src="https://hyaki.fun/usr/themes/Akina/images/logo.png">&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                    </el-col>-->
-                    <el-col :xs="10" :sm="10" :md="10" :lg="10" :xl="10">
+
+                    <el-col :xs="3" :sm="3" :md="3" :lg="3" :xl="3">
+                        <div class="grid-content bg-purple-light">
+                            <img class="logo" src="https://hyaki.fun/usr/themes/Akina/images/logo.png">
+                        </div>
+                    </el-col>
+                    <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="7">
                         <div class="grid-content bg-purple-light">
                             <el-breadcrumb class="menu" separator="|" >
                                 <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -29,22 +30,35 @@
                     </el-col>
                     <el-col :xs="3" :sm="3" :md="3" :lg="3" :xl="2">
                         <div class="grid-content bg-purple-light">
-<!--                            <button class="btn" >-->
-<!--                                <i class="el-icon-search"></i>-->
-<!--                            </button>-->
                             <el-button id="search-button" type="danger">◯</el-button>
                         </div>
                     </el-col>
 
 
-                    <el-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4">
-                        <!--                        <div class="grid-content bg-purple-light">-->
-                        <!--                            <img class="logo" src="https://hyaki.fun/usr/themes/Akina/images/logo.png">-->
-                        <!--                        </div>-->
+                    <el-col :xs="5" :sm="5" :md="5" :lg="5" :xl="5">
+                        <el-dropdown id="drop">
+                            <span class="el-dropdown-link">
+                              <el-avatar id="avatar"
+                                         src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                              ></el-avatar>
+                            </span>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                    <el-dropdown-item>个人中心</el-dropdown-item>
+                                    <el-dropdown-item>设置</el-dropdown-item>
+                                    <el-dropdown-item>退出登录</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+
+
+
+
                     </el-col>
                 </el-row>
             </div>
         </el-col>
+
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
     </el-row>
 
@@ -52,6 +66,24 @@
 
 <script >
 
+export default {
+    name: "Header",
+    setup() {
+        const errorHandler = () => true
+
+        return {
+            errorHandler,
+
+
+        }
+
+    },
+    data() {
+        return {
+
+        }
+    }
+}
 </script>
 
 <style  >
@@ -97,30 +129,6 @@
     #search-button span{
         text-align: center;
     }
-    /*@media screen and (min-width: 1200px) {*/
-    /*    .btn {*/
-    /*        float: left;*/
-    /*        width: 50px;*/
-    /*        margin-top: 10px;*/
-    /*        background-color: #ECA23E;*/
-    /*        border-top-right-radius: 30px;*/
-    /*        border-bottom-right-radius: 30px;*/
-    /*        height: 40px;*/
-    /*        border: none;*/
-    /*    }*/
-    /*}*/
-    /*@media screen and (max-width: 800px) {*/
-    /*    .btn {*/
-    /*        float: left;*/
-    /*        width: 38px;*/
-    /*        margin-top: 10px;*/
-    /*        background-color: #ECA23E;*/
-    /*        border-top-right-radius: 10px;*/
-    /*        border-bottom-right-radius: 10px;*/
-    /*        height: 40px;*/
-    /*        border: none;*/
-    /*    }*/
-    /*}*/
 
     .menu {
         margin-top: 20px;
@@ -145,7 +153,16 @@
         width: 50px;
         height: 20px;
         font-size: large;
-
     }
+  #avatar {
+      margin-top: 10px;
+      float: right;
+  }
+    #drop {
+        float: right!important;
+        margin-top: 10px;
+        width: 30%;
+    }
+
 
 </style>
