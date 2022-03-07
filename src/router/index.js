@@ -3,7 +3,7 @@ import Home from "../views/Home";
 
 const routes = [
     {
-        path: "/Home",
+        path: "/",
         name: "Home",
         component: Home,
     },
@@ -27,7 +27,7 @@ const routes = [
             import('../views/charterDetail')
     },
     {
-        path: "/",
+        path: "/signin",
         name: "Signin",
         component: () =>
             import('../views/Signin')
@@ -39,6 +39,12 @@ const routes = [
         component: () =>
             import('../views/Signup')
     },
+    {
+        path: "/userId",
+        name: "User",
+        component: () =>
+            import('../views/User')
+    }
 
 
 
