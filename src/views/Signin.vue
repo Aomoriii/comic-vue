@@ -1,7 +1,10 @@
+<!-- 登录页面 -->
 <template>
-    <body id="login-page">
+    <div id="login-page">
+    <!--  登录表单区域  -->
     <el-form :model="loginForm" :rules="rules" ref="loginForm" class="login-container" label-position="left" label-width="0px">
         <h3 class="login_title">用户登录</h3>
+        <!--   用户名     -->
         <el-form-item prop="loginName">
             <el-input
                     type="text"
@@ -10,6 +13,7 @@
                     placeholder="用户名"
             ></el-input>
         </el-form-item>
+        <!-- 密码 -->
         <el-form-item prop="password">
             <el-input
                     type="password"
@@ -18,6 +22,7 @@
                     placeholder="密码"
             ></el-input>
         </el-form-item>
+        <!--   按钮区域     -->
         <el-form-item style="width: 100%">
             <el-button
                     type="primary"
@@ -28,30 +33,17 @@
             <el-button
                     id="sign_up_button"
                     style="width: 40%"
-                    @click="goToSignup"
-            >注册</el-button
+            >重置</el-button
             >
         </el-form-item>
 
     </el-form>
-    </body>
+    </div>
 </template>
 
 <script>
-import { useRouter } from "vue-router";
 export default {
     name: "Signin",
-    setup() {
-        const router = useRouter();
-        const  goToSignup = () => {
-            router.push({
-                name: "Signup",
-            });
-        };
-        return {
-            goToSignup,
-        }
-    },
     data() {
         const validateLoginName = (rule,value,callback)=> {
             if (value ===''){
@@ -99,6 +91,7 @@ export default {
                             message: '登录成功',
                             type: 'success'
                         });
+                        this.hasLogin = true
                         this.$router.push({name: "Home"})
                     }
                 }
@@ -115,7 +108,7 @@ export default {
 
 <style scoped>
     #login-page {
-        /*background: url("../assets/img/bg.jpg") no-repeat;*/
+        background-image: url("../assets/login.png");
         background-position: center;
         height: 100%;
         width: 100%;
@@ -123,7 +116,7 @@ export default {
         position: fixed;
     }
     body {
-        margin: 0px;
+        margin: 0;
     }
     .login-container {
         border-radius: 15px;
@@ -138,7 +131,7 @@ export default {
     }
 
     .login_title {
-        margin: 0px auto 40px auto;
+        margin: 0 auto 40px auto;
         text-align: center;
         color: #505458;
     }
