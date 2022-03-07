@@ -1,10 +1,14 @@
+<!-- 漫画详情页面 -->
 <template>
     <Header/>
     <el-row :gutter="10" id="tag">
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1">
         </el-col>
+
+        <!-- 漫画内容区域 -->
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
             <div class="wrap">
+                <!--   漫画简介区域    -->
                 <div class="detail">
                     <img :src="src" >
                     <h1>comic name</h1>
@@ -27,19 +31,25 @@
 
                 </div>
             </div>
+            <!--   漫画章节列表   -->
             <div class="charterList">
                 <el-card class="box-card" id="box-card">
                     <template #header>
                         <div class="card-header">
                         </div>
                     </template>
-                        <div v-for="(item, key) in list" class="text item" id="list" v-show="key<num"><el-button class="charterButton" @click="goToCharter">{{ item  }}</el-button></div>
+                    <!-- 章节按钮 -->
+                  <div v-for="(item, key) in list" class="text item" id="list" v-show="key<num">
+                      <el-button class="charterButton" @click="goToCharter">{{ item  }}</el-button>
+                  </div>
 
                 </el-card>
+                <!-- 加载更多 -->
                 <span @click="showMore"><el-button type="danger" id="showMore_button" plain>{{ txt }}</el-button></span>
             </div>
 
         </el-col>
+
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"></el-col>
     </el-row>
     <Footer/>
@@ -60,6 +70,7 @@ export default {
                 name: "charterDetail",
             });
         };
+        // 漫画封面图
         const src =
             'https://cover.yzkimage.com/cover/a8/f1/a8f14a15eaf89412e29742dc150e7ff9.jpeg-r0';
         return {
@@ -69,6 +80,7 @@ export default {
     },
     data() {
         return {
+            // 章节列表
             list: [
                 '第一章',
                 '第二章',

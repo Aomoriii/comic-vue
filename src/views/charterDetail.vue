@@ -1,3 +1,4 @@
+<!-- 漫画章节详情页面（就是开始看漫画图片的页面） -->
 <template>
     <Header/>
     <Pictures/>

@@ -1,7 +1,10 @@
+<!-- 注册页面 -->
 <template>
-    <body id="signup-page">
+    <div id="signup-page">
     <el-form class="signup-container" label-position="left" label-width="0px">
+        <!--   注册表单区域     -->
         <h3 class="signup_title">注册</h3>
+        <!--   邮箱     -->
         <el-form-item>
             <el-input
                     type="text"
@@ -10,6 +13,7 @@
                     placeholder="邮箱"
             ></el-input>
         </el-form-item>
+        <!-- 密码 -->
         <el-form-item>
             <el-input
                     type="password"
@@ -18,6 +22,7 @@
                     placeholder="密码"
             ></el-input>
         </el-form-item>
+        <!-- 注册按钮 -->
         <el-form-item style="width: 100%">
             <el-button
                     type="primary"
@@ -26,7 +31,7 @@
             >
         </el-form-item>
     </el-form>
-    </body>
+    </div>
 </template>
 
 <script>
@@ -55,7 +60,7 @@ export default {
         position: fixed;
     }
     body {
-        margin: 0px;
+        margin: 0;
     }
     .signup-container {
         border-radius: 15px;
@@ -70,7 +75,7 @@ export default {
     }
 
     .signup_title {
-        margin: 0px auto 40px auto;
+        margin: 0 auto 40px auto;
         text-align: center;
         color: #505458;
     }

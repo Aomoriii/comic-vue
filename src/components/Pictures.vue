@@ -13,6 +13,7 @@
                     </template>
                 </el-table-column>
             </el-table>
+                <!--   翻页  -->
                 <el-pagination
                         background
                         @size-change="handleSizeChange"
@@ -59,7 +60,7 @@ export default {
             console.log(this.currentPage)
         },
         handleUserList() {
-
+            // 临时数据
             let src = [
                 {
                     url: "https://dogemanga.com/images/pages/y7_SkEBa.jpg",

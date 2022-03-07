@@ -1,6 +1,8 @@
+<!-- 首页 -->
 <template>
     <Header/>
 
+    <!-- 走马灯 -->
     <el-row :gutter="10">
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
@@ -15,7 +17,7 @@
         </div></el-col>
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
     </el-row>
-
+    <!-- 热门漫画列表 -->
     <el-row :gutter="10">
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
@@ -44,7 +46,7 @@
         </el-col>
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
     </el-row>
-
+    <!-- 最近更新列表 -->
     <el-row :gutter="10">
         <el-col :xs="4" :sm="4" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
         <el-col :xs="16" :sm="16" :md="16" :lg="18" :xl="22">
@@ -99,6 +101,7 @@
         data() {
             return {
                 Height: "",
+                // 走马灯图片数据
                 item: [
                     {url : require("@/img/1.jpg")},
                     {url: require("@/img/2.jpg")},
